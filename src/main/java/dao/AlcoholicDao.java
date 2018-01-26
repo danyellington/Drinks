@@ -10,7 +10,7 @@ public interface AlcoholicDao {
 
     void add(Alcoholic alcoholic);
 
-//    Alcoholic findById(int id);
+    Alcoholic findById(int id);
 //
 //
 //    void addAlcoholicToNonAlcoholic(Alcoholic alcoholic, NonAlcoholic nonAlcoholic);

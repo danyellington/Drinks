@@ -24,7 +24,7 @@ public class Sql2oAlcoholicDao implements AlcoholicDao {
                     .executeUpdate()
                     .getKey();
             alcoholic.setId(id);
-        }catch (Sql2oException ex) {
+        } catch (Sql2oException ex) {
             System.out.println(ex);
         }
 
@@ -38,5 +38,14 @@ public class Sql2oAlcoholicDao implements AlcoholicDao {
         }
     }
 
+    @Override
+    public Alcoholic findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM alcoholic WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Alcoholic.class);
+        }
 
+
+    }
 }

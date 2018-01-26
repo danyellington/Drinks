@@ -53,7 +53,13 @@ public class Sql2oNonAlcoholicDaoTest {
     nonAlcoholicDao.add(testNonAlcoholic2);
     assertEquals(2, nonAlcoholicDao.getAll().size());
 }
-
-
+    @Test
+    public void findNonAlcoholicIngredientsById() throws Exception {
+        NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
+        NonAlcoholic testNonAlcoholic2 = new NonAlcoholic("wine", 2);
+        nonAlcoholicDao.add(testNonAlcoholic);
+        nonAlcoholicDao.add(testNonAlcoholic2);
+        assertEquals("wine", nonAlcoholicDao.findById(1).getIngredients());
+    }
 
 }
