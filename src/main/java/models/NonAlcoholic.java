@@ -3,7 +3,7 @@ package models;
 
 public class NonAlcoholic {
     private String ingredients;
-    private int naId;
+    private int id;
     private int drinkId;
 
 
@@ -22,12 +22,12 @@ public class NonAlcoholic {
         this.ingredients = ingredients;
     }
 
-    public int getNaId() {
-        return naId;
+    public int getId() {
+        return id;
     }
 
-    public void setNaId(int naId) {
-        this.naId = naId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getDrinkId() {
@@ -45,7 +45,7 @@ public class NonAlcoholic {
 
         NonAlcoholic that = (NonAlcoholic) o;
 
-        if (naId != that.naId) return false;
+        if (id != that.id) return false;
         if (drinkId != that.drinkId) return false;
         return ingredients != null ? ingredients.equals(that.ingredients) : that.ingredients == null;
     }
@@ -53,7 +53,7 @@ public class NonAlcoholic {
     @Override
     public int hashCode() {
         int result = ingredients != null ? ingredients.hashCode() : 0;
-        result = 31 * result + naId;
+        result = 31 * result + id;
         result = 31 * result + drinkId;
         return result;
     }

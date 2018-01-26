@@ -44,7 +44,7 @@ public class Sql2oAlcoholicDaoTest {
     }
 
     @Test
-    public void drinksReturnedFromGetAll() throws Exception {
+    public void alcoholicDrinksReturnedFromGetAll() throws Exception {
         Alcoholic testAlcoholic = setupAlcoholic();
         Alcoholic testAlcoholic2 = setupAlcoholic();
         alcoholicDao.add(testAlcoholic);

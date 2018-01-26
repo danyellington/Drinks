@@ -24,7 +24,7 @@ public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
                     .bind(NonAlcoholic)
                     .executeUpdate()
                     .getKey();
-            NonAlcoholic.setNaId(id);
+            NonAlcoholic.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
