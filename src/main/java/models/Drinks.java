@@ -3,10 +3,20 @@ package models;
 
 public class Drinks {
     private String type;
+    private int drinkId;
 
 
     public Drinks(String type){
         this.type = type;
+        this.drinkId = drinkId;
+    }
+
+    public int getDrinkId() {
+        return drinkId;
+    }
+
+    public void setDrinkId(int drinkId) {
+        this.drinkId = drinkId;
     }
 
     public String getType() {

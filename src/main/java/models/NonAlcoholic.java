@@ -4,7 +4,7 @@ package models;
 public class NonAlcoholic {
     private String ingredients;
 
-    public NonAlcoholic(){
+    public NonAlcoholic(String ingredients){
         this.ingredients = ingredients;
 
     }
