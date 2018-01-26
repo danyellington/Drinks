@@ -9,6 +9,7 @@ public class NonAlcoholic {
 
     public NonAlcoholic(String ingredients, int drinkId) {
         this.ingredients = ingredients;
+        this.drinkId = drinkId;
 
 
 

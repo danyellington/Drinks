@@ -8,23 +8,23 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-public class Sql2oDrinksDao implements DrinksDao {
+public class Sql2oDrinkDao implements DrinkDao {
 
     private final Sql2o sql2o;
 
-    public Sql2oDrinksDao(Sql2o sql2o) {
+    public Sql2oDrinkDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
     @Override
-    public void add(Drinks drinks) {
-        String sql = "INSERT INTO Drinks (type) Values (:type)";
+    public void add(Drink drink) {
+        String sql = "INSERT INTO Drink (type) Values (:type)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
-                    .bind(drinks)
+                    .bind(drink)
                     .executeUpdate()
                     .getKey();
-            drinks.setDrinkId(id);
+            drink.setDrinkId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
@@ -32,24 +32,29 @@ public class Sql2oDrinksDao implements DrinksDao {
     }
 
     @Override
-    public List<Drinks> getAll() {
-        String sql = "SELECT * FROM drinks";
+    public List<Drink> getAll() {
+        String sql = "SELECT * FROM drink";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
-                    .executeAndFetch(Drinks.class);
+                    .executeAndFetch(Drink.class);
         }
     }
 
     @Override
-    public Drinks findById(int id) {
+    public List<NonAlcoholic> getAllNonAlcoholicDrinks(int drinkId) {
+        return null;
+    }
+
+    @Override
+    public Drink findById(int id) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM drinks WHERE id = :id")
+            return con.createQuery("SELECT * FROM drink WHERE id = :id")
                     .addParameter("id", id)
-                    .executeAndFetchFirst(Drinks.class);
+                    .executeAndFetchFirst(Drink.class);
         }
 
 //    @Override
-//    public Drinks findById(int drinkId) {
+//    public Drink findById(int drinkId) {
 //        return null;
 //    }
     }

@@ -1,16 +1,15 @@
 package models;
 
 
-public class Drinks {
+public class Drink {
     private String type;
     private int drinkId;
 
 
-    public Drinks(String type){
+    public Drink(String type) {
         this.type = type;
 
     }
-
 
     public String getType() {
         return type;
@@ -33,10 +32,10 @@ public class Drinks {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Drinks drinks = (Drinks) o;
+        Drink drink = (Drink) o;
 
-        if (drinkId != drinks.drinkId) return false;
-        return type != null ? type.equals(drinks.type) : drinks.type == null;
+        if (drinkId != drink.drinkId) return false;
+        return type != null ? type.equals(drink.type) : drink.type == null;
     }
 
     @Override

@@ -11,10 +11,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 
-public class Sql2oDrinksDaoTest{
+public class Sql2oDrinkDaoTest {
 
     private Connection conn;
-    private Sql2oDrinksDao drinksDao;
+    private Sql2oDrinkDao drinkDao;
     private Sql2oAlcoholicDao alcoholicDao;
     private Sql2oNonAlcoholicDao nonAlcoholicDao;
 
@@ -22,7 +22,7 @@ public class Sql2oDrinksDaoTest{
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        drinksDao = new Sql2oDrinksDao(sql2o);
+        drinkDao = new Sql2oDrinkDao(sql2o);
         alcoholicDao = new Sql2oAlcoholicDao(sql2o);
         nonAlcoholicDao = new Sql2oNonAlcoholicDao(sql2o);
         conn = sql2o.open();
@@ -33,34 +33,34 @@ public class Sql2oDrinksDaoTest{
         conn.close();
     }
 
-    public Drinks setupDrinks(){
-        return new Drinks("tropical");
+    public Drink setupDrinks(){
+        return new Drink("tropical");
     }
 
 
     @Test
     public void setId(){
-        Drinks testDrinks = setupDrinks();
-        drinksDao.add(testDrinks);
+        Drink testDrinks = setupDrinks();
+        drinkDao.add(testDrinks);
         assertEquals(1, testDrinks.getDrinkId());
     }
 
     @Test
     public void SetsId() throws Exception {
-        Drinks drinks = setupDrinks();
-        int originalDrinkId = drinks.getDrinkId();
-        drinksDao.add(drinks);
-        assertNotEquals(originalDrinkId, drinks.getDrinkId());
+        Drink drink = setupDrinks();
+        int originalDrinkId = drink.getDrinkId();
+        drinkDao.add(drink);
+        assertNotEquals(originalDrinkId, drink.getDrinkId());
     }
-//
-//    @Test
-//    public void drinksReturnedFromGetAll() throws Exception {
-//        Drinks testDrinks = setupDrinks();
-//        Drinks testDrinks2 = setupDrinks();
-//        drinksDao.add(testDrinks);
-//        drinksDao.add(testDrinks2);
-//        assertEquals(2, drinksDao.getAll().size());
-//    }
+
+    @Test
+    public void drinksReturnedFromGetAll() throws Exception {
+        Drink testDrinks = setupDrinks();
+        Drink testDrinks2 = setupDrinks();
+        drinkDao.add(testDrinks);
+        drinkDao.add(testDrinks2);
+        assertEquals(2, drinkDao.getAll().size());
+    }
 
 }
 
