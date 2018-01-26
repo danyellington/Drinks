@@ -3,10 +3,21 @@ package models;
 
 public class NonAlcoholic {
     private String ingredients;
+    private int id;
 
-    public NonAlcoholic(String ingredients){
+
+    public NonAlcoholic(String ingredients, int id){
         this.ingredients = ingredients;
+        this.id = id;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getIngredients() {
@@ -24,11 +35,14 @@ public class NonAlcoholic {
 
         NonAlcoholic that = (NonAlcoholic) o;
 
+        if (id != that.id) return false;
         return ingredients != null ? ingredients.equals(that.ingredients) : that.ingredients == null;
     }
 
     @Override
     public int hashCode() {
-        return ingredients != null ? ingredients.hashCode() : 0;
+        int result = ingredients != null ? ingredients.hashCode() : 0;
+        result = 31 * result + id;
+        return result;
     }
 }

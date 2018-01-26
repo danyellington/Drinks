@@ -1,7 +1,17 @@
 package dao;
 
-/**
- * Created by Guest on 1/26/18.
- */
+
+import models.NonAlcoholic;
+
+import java.util.List;
+
 public interface NonAlcoholicDao {
+
+    void add(NonAlcoholic nonAlcoholic);
+
+
+
+    List<NonAlcoholic> getAll();
+
+    void deleteById(int id);
 }

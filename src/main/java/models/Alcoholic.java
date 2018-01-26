@@ -3,13 +3,24 @@ package models;
 
 public class Alcoholic extends NonAlcoholic {
     private String alcoholType;
+    private int id;
 
 
-    public Alcoholic(String ingredients, String alcoholType) {
-        super(ingredients);
+    public Alcoholic(String ingredients, String alcoholType, int id) {
+        super(ingredients, id);
         this.alcoholType = alcoholType;
+        this.id = id;
     }
 
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getAlcoholType() {
         return alcoholType;
@@ -27,6 +38,7 @@ public class Alcoholic extends NonAlcoholic {
 
         Alcoholic alcoholic = (Alcoholic) o;
 
+        if (id != alcoholic.id) return false;
         return alcoholType != null ? alcoholType.equals(alcoholic.alcoholType) : alcoholic.alcoholType == null;
     }
 
@@ -34,6 +46,7 @@ public class Alcoholic extends NonAlcoholic {
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (alcoholType != null ? alcoholType.hashCode() : 0);
+        result = 31 * result + id;
         return result;
     }
 }

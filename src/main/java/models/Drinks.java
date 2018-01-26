@@ -35,11 +35,14 @@ public class Drinks {
 
         Drinks drinks = (Drinks) o;
 
+        if (drinkId != drinks.drinkId) return false;
         return type != null ? type.equals(drinks.type) : drinks.type == null;
     }
 
     @Override
     public int hashCode() {
-        return type != null ? type.hashCode() : 0;
+        int result = type != null ? type.hashCode() : 0;
+        result = 31 * result + drinkId;
+        return result;
     }
 }
