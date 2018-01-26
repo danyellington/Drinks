@@ -10,8 +10,9 @@ public interface NonAlcoholicDao {
     void add(NonAlcoholic nonAlcoholic);
 
 
-
-    List<NonAlcoholic> getAll();
-
-    void deleteById(int id);
+//    List<NonAlcoholic> getAll();
+//
+//    NonAlcoholic findById(int id);
+//
+//    void deleteById(int id);
 }

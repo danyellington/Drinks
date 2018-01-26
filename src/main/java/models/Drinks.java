@@ -6,7 +6,7 @@ public class Drinks {
     private int drinkId;
 
 
-    public Drinks(String type){
+    public Drinks(String type, int drinkId){
         this.type = type;
         this.drinkId = drinkId;
     }

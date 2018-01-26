@@ -6,10 +6,19 @@ public class NonAlcoholic {
     private int id;
 
 
-    public NonAlcoholic(String ingredients, int id){
+    public NonAlcoholic(String ingredients, int id) {
         this.ingredients = ingredients;
         this.id = id;
 
+    }
+
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 
     public int getId() {
@@ -18,14 +27,6 @@ public class NonAlcoholic {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
     }
 
     @Override

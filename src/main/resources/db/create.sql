@@ -18,10 +18,3 @@ drinkId VARCHAR,
 alcoholType VARCHAR
 );
 
-
-CREATE TABLE IF NOT EXISTS nonAlcoholic_alcoholic (
-id int PRIMARY KEY auto_increment,
-drinkId VARCHAR,
-nonAlcoholicId VARCHAR,
-alcoholicId VARCHAR
-);

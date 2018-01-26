@@ -15,13 +15,23 @@ public class Sql2oAlcoholicDao implements AlcoholicDao {
 
     @Override
     public void add(Alcoholic alcoholic) {
+        String sql = "INSERT INTO Alcoholic (alcoholType) Values (:alcoholType)";
+        try (Connection con = sql2o.open()) {
+            int id = (int) con.createQuery(sql)
+                    .bind(alcoholic)
+                    .executeUpdate()
+                    .getKey();
+            alcoholic.setId(id);
+        }catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
 
     }
 
-    @Override
-    public Alcoholic findById(int id) {
-        return null;
-    }
+//    @Override
+//    public Alcoholic findById(int id) {
+//        return null;
+//    }
 
 
 

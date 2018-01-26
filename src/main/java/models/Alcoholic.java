@@ -12,6 +12,15 @@ public class Alcoholic extends NonAlcoholic {
         this.id = id;
     }
 
+
+    public String getAlcoholType() {
+        return alcoholType;
+    }
+
+    public void setAlcoholType(String alcoholType) {
+        this.alcoholType = alcoholType;
+    }
+
     @Override
     public int getId() {
         return id;
@@ -20,14 +29,6 @@ public class Alcoholic extends NonAlcoholic {
     @Override
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getAlcoholType() {
-        return alcoholType;
-    }
-
-    public void setAlcoholType(String alcoholType) {
-        this.alcoholType = alcoholType;
     }
 
     @Override
