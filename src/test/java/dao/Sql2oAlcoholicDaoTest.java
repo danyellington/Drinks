@@ -31,7 +31,7 @@ public class Sql2oAlcoholicDaoTest {
     }
 
     public Alcoholic setupAlcoholic(){
-        return new Alcoholic("this", "rum");
+        return new Alcoholic("this", 1, "rum");
     }
 
 

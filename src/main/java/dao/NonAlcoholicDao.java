@@ -12,7 +12,7 @@ public interface NonAlcoholicDao {
 
     List<NonAlcoholic> getAll();
 
-//    NonAlcoholic findById(int id);
+    NonAlcoholic findById(int id);
 //
 //    void deleteById(int id);
 }

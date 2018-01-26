@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 
-public class Sql2oDrinksDaoTest {
+public class Sql2oDrinksDaoTest{
 
     private Connection conn;
     private Sql2oDrinksDao drinksDao;
@@ -34,7 +34,7 @@ public class Sql2oDrinksDaoTest {
     }
 
     public Drinks setupDrinks(){
-        return new Drinks("tropical", 1);
+        return new Drinks("tropical");
     }
 
 
@@ -48,7 +48,9 @@ public class Sql2oDrinksDaoTest {
     @Test
     public void drinksReturnedFromGetAll() throws Exception {
         Drinks testDrinks = setupDrinks();
-        DrinksDao.add(testDrinks);
+        Drinks testDrinks2 = setupDrinks();
+        drinksDao.add(testDrinks);
+        drinksDao.add(testDrinks2);
         assertEquals(1, drinksDao.getAll().size());
     }
 

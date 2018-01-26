@@ -24,7 +24,7 @@ public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
                     .bind(NonAlcoholic)
                     .executeUpdate()
                     .getKey();
-            NonAlcoholic.setId(id);
+            NonAlcoholic.setNaId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
@@ -41,8 +41,12 @@ public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
         }
     }
 
-//    @Override
-//    public NonAlcoholic findById(int id) {
-//        return null;
-//    }
+    @Override
+    public NonAlcoholic findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM nonAlcoholic WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(NonAlcoholic.class);
+        }
+    }
 }

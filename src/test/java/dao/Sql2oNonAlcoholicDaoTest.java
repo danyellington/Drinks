@@ -32,7 +32,7 @@ public class Sql2oNonAlcoholicDaoTest {
     }
 
     public NonAlcoholic setupNonAlcoholic(){
-        return new NonAlcoholic("juice");
+        return new NonAlcoholic("juice", 1);
     }
 
 
@@ -43,11 +43,19 @@ public class Sql2oNonAlcoholicDaoTest {
         assertEquals(1, testNonAlcoholic.getNaId());
     }
 
+//    @Test
+//    public void nonAlcoholicDrinksReturnedFromGetAll() throws Exception {
+//        NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
+//        NonAlcoholicDao.add(testNonAlcoholic);
+//        assertEquals(1, nonAlcoholicDao.getAll().size());
+//    }
+
     @Test
-    public void nonAlcoholicDrinksReturnedFromGetAll() throws Exception {
-        NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
-        NonAlcoholicDao.add(testNonAlcoholic);
-        assertEquals(1, nonAlcoholicDao.getAll().size());
+    public void returnId() throws Exception {
+        NonAlcoholic nonAlcoholic = setupNonAlcoholic();
+        int naId = nonAlcoholic.getDrinkId();
+        nonAlcoholicDao.add(nonAlcoholic);
+        assertEquals(naId, nonAlcoholicDao.findById(nonAlcoholic.getNaId()).getDrinkId());
     }
 
 

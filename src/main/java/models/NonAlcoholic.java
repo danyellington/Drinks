@@ -7,8 +7,9 @@ public class NonAlcoholic {
     private int drinkId;
 
 
-    public NonAlcoholic(String ingredients) {
+    public NonAlcoholic(String ingredients, int drinkId) {
         this.ingredients = ingredients;
+
 
 
     }
