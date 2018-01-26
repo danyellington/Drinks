@@ -15,6 +15,7 @@ public class Sql2oNonAlcoholicDaoTest {
     private Connection conn;
     private Sql2oAlcoholicDao alcoholicDao;
     private Sql2oNonAlcoholicDao nonAlcoholicDao;
+    private Sql2oDrinksDao drinksDao;
 
     @Before
     public void setUp() throws Exception {
@@ -39,7 +40,14 @@ public class Sql2oNonAlcoholicDaoTest {
     public void setId(){
         NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
         nonAlcoholicDao.add(testNonAlcoholic);
-        assertEquals(1, testNonAlcoholic.getId());
+        assertEquals(1, testNonAlcoholic.getNaId());
+    }
+
+    @Test
+    public void nonAlcoholicDrinksReturnedFromGetAll() throws Exception {
+        NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
+        NonAlcoholicDao.add(testNonAlcoholic);
+        assertEquals(1, nonAlcoholicDao.getAll().size());
     }
 
 

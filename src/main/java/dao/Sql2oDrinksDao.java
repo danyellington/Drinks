@@ -6,6 +6,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.List;
+
 public class Sql2oDrinksDao implements DrinksDao{
 
     private final Sql2o sql2o;
@@ -28,4 +30,18 @@ public class Sql2oDrinksDao implements DrinksDao{
         }
 
     }
+
+    @Override
+    public List<Drinks> getAll() {
+        String sql = "SELECT * FROM drinks";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(Drinks.class);
+        }
+    }
+
+//    @Override
+//    public Drinks findById(int drinkId) {
+//        return null;
+//    }
 }

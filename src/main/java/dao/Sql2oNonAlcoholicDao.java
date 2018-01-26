@@ -6,6 +6,8 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.List;
+
 public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
 
     private final Sql2o sql2o;
@@ -28,4 +30,19 @@ public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
         }
 
     }
+
+    @Override
+    public List<NonAlcoholic> getAll() {
+        String sql = "SELECT * FROM nonAlcoholic";
+        try (Connection con = sql2o.open()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(NonAlcoholic.class);
+
+        }
+    }
+
+//    @Override
+//    public NonAlcoholic findById(int id) {
+//        return null;
+//    }
 }

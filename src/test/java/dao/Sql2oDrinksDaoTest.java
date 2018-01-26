@@ -34,7 +34,7 @@ public class Sql2oDrinksDaoTest {
     }
 
     public Drinks setupDrinks(){
-        return new Drinks("tropical");
+        return new Drinks("tropical", 1);
     }
 
 
@@ -43,6 +43,13 @@ public class Sql2oDrinksDaoTest {
         Drinks testDrinks = setupDrinks();
         drinksDao.add(testDrinks);
         assertEquals(1, testDrinks.getDrinkId());
+    }
+
+    @Test
+    public void drinksReturnedFromGetAll() throws Exception {
+        Drinks testDrinks = setupDrinks();
+        DrinksDao.add(testDrinks);
+        assertEquals(1, drinksDao.getAll().size());
     }
 
 }
