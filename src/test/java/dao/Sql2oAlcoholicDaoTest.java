@@ -2,6 +2,7 @@ package dao;
 
 import models.Alcoholic;
 import models.Drink;
+import models.NonAlcoholic;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,6 +51,15 @@ public class Sql2oAlcoholicDaoTest {
         alcoholicDao.add(testAlcoholic);
         alcoholicDao.add(testAlcoholic2);
         assertEquals(2, alcoholicDao.getAll().size());
+    }
+
+    @Test
+    public void findAlcoholicTypesById() throws Exception {
+        Alcoholic testNonAlcoholic = setupAlcoholic();
+        Alcoholic testNonAlcoholic2 = new Alcoholic("juice", 1, 9, "rum");
+        alcoholicDao.add(testNonAlcoholic);
+        alcoholicDao.add(testNonAlcoholic2);
+        assertEquals("juice", alcoholicDao.findById(1).getAlcoholType());
     }
 
 }

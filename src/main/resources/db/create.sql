@@ -15,7 +15,6 @@ drinkId INTEGER
 
 CREATE TABLE IF NOT EXISTS alcoholic (
 id int PRIMARY KEY auto_increment,
-naId VARCHAR,
 alcoholType VARCHAR
 );
 
