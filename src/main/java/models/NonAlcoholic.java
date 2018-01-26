@@ -12,7 +12,6 @@ public class NonAlcoholic {
 
     }
 
-
     public String getIngredients() {
         return ingredients;
     }

@@ -7,9 +7,9 @@ public interface DrinksDao {
 
 
     void add (Drinks drinks);
-    List<Drinks> getAll();
-
-    Drinks findById(int drinkId);
+//    List<Drinks> getAll();
+//
+//    Drinks findById(int drinkId);
 
 
 

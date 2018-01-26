@@ -1,6 +1,6 @@
 package dao;
 
-import models.Alcoholic;
+import models.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import org.sql2o.Sql2o;
 import static org.junit.Assert.*;
 
 
-public class Sql2oAlcoholicDaoTest {
+public class Sql2oNonAlcoholicDaoTest {
 
     private Connection conn;
     private Sql2oAlcoholicDao alcoholicDao;
@@ -30,16 +30,17 @@ public class Sql2oAlcoholicDaoTest {
         conn.close();
     }
 
-    public Alcoholic setupAlcoholic(){
-        return new Alcoholic("this", "rum");
+    public NonAlcoholic setupNonAlcoholic(){
+        return new NonAlcoholic("juice");
     }
 
 
     @Test
     public void setId(){
-        Alcoholic testAlcoholic = setupAlcoholic();
-        alcoholicDao.add(testAlcoholic);
-        assertEquals(1, testAlcoholic.getId());
+        NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
+        nonAlcoholicDao.add(testNonAlcoholic);
+        assertEquals(1, testNonAlcoholic.getId());
     }
+
 
 }
