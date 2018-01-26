@@ -46,13 +46,21 @@ public class Sql2oDrinksDaoTest{
     }
 
     @Test
-    public void drinksReturnedFromGetAll() throws Exception {
-        Drinks testDrinks = setupDrinks();
-        Drinks testDrinks2 = setupDrinks();
-        drinksDao.add(testDrinks);
-        drinksDao.add(testDrinks2);
-        assertEquals(1, drinksDao.getAll().size());
+    public void SetsId() throws Exception {
+        Drinks drinks = setupDrinks();
+        int originalDrinkId = drinks.getDrinkId();
+        drinksDao.add(drinks);
+        assertNotEquals(originalDrinkId, drinks.getDrinkId());
     }
+//
+//    @Test
+//    public void drinksReturnedFromGetAll() throws Exception {
+//        Drinks testDrinks = setupDrinks();
+//        Drinks testDrinks2 = setupDrinks();
+//        drinksDao.add(testDrinks);
+//        drinksDao.add(testDrinks2);
+//        assertEquals(2, drinksDao.getAll().size());
+//    }
 
 }
 

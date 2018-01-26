@@ -8,7 +8,7 @@ import org.sql2o.Sql2oException;
 
 import java.util.List;
 
-public class Sql2oDrinksDao implements DrinksDao{
+public class Sql2oDrinksDao implements DrinksDao {
 
     private final Sql2o sql2o;
 
@@ -25,7 +25,7 @@ public class Sql2oDrinksDao implements DrinksDao{
                     .executeUpdate()
                     .getKey();
             drinks.setDrinkId(id);
-        }catch (Sql2oException ex) {
+        } catch (Sql2oException ex) {
             System.out.println(ex);
         }
 
@@ -40,8 +40,17 @@ public class Sql2oDrinksDao implements DrinksDao{
         }
     }
 
+    @Override
+    public Drinks findById(int id) {
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM drinks WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Drinks.class);
+        }
+
 //    @Override
 //    public Drinks findById(int drinkId) {
 //        return null;
 //    }
+    }
 }

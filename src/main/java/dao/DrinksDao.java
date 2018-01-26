@@ -10,7 +10,7 @@ public interface DrinksDao {
 
     List<Drinks> getAll();
 
-//    Drinks findById(int drinkId);
+    Drinks findById(int id);
 //
 //
 //    static void add(NonAlcoholic testNonAlcoholic) {

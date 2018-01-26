@@ -12,14 +12,6 @@ public class Drinks {
     }
 
 
-    public int getDrinkId() {
-        return drinkId;
-    }
-
-    public void setDrinkId(int drinkId) {
-        this.drinkId = drinkId;
-    }
-
     public String getType() {
         return type;
     }
@@ -28,6 +20,13 @@ public class Drinks {
         this.type = type;
     }
 
+    public int getDrinkId() {
+        return drinkId;
+    }
+
+    public void setDrinkId(int drinkId) {
+        this.drinkId = drinkId;
+    }
 
     @Override
     public boolean equals(Object o) {
