@@ -1,5 +1,6 @@
 package dao;
 
+import models.Alcoholic;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -28,4 +29,17 @@ public class Sql2oAlcoholicDaoTest {
     public void tearDown() throws Exception {
         conn.close();
     }
+
+    public Alcoholic setupAlcoholic(){
+        return new Alcoholic("this", "rum");
+    }
+
+
+    @Test
+    public void setId(){
+        Alcoholic testAlcoholic = setupAlcoholic();
+        alcoholicDao.add(testAlcoholic);
+        assertEquals(1, testAlcoholic.getId());
+    }
+
 }

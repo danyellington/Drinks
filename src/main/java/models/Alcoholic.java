@@ -6,8 +6,8 @@ public class Alcoholic extends NonAlcoholic {
     private int id;
 
 
-    public Alcoholic(String ingredients, String alcoholType, int id) {
-        super(ingredients, id);
+    public Alcoholic(String ingredients, String alcoholType) {
+        super(ingredients);
         this.alcoholType = alcoholType;
         this.id = id;
     }
