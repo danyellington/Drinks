@@ -1,8 +1,9 @@
 SET MODE PostgreSQL;
 
-CREATE TABLE IF NOT EXISTS drink (
+CREATE TABLE IF NOT EXISTS drinks (
 id int PRIMARY KEY auto_increment,
 type VARCHAR
+
 );
 
 CREATE TABLE IF NOT EXISTS nonAlcoholic (

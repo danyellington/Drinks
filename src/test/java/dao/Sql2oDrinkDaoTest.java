@@ -53,14 +53,14 @@ public class Sql2oDrinkDaoTest {
         assertNotEquals(originalDrinkId, drink.getDrinkId());
     }
 
-    @Test
-    public void drinksReturnedFromGetAll() throws Exception {
-        Drink testDrinks = setupDrinks();
-        Drink testDrinks2 = setupDrinks();
-        drinkDao.add(testDrinks);
-        drinkDao.add(testDrinks2);
-        assertEquals(2, drinkDao.getAll().size());
-    }
+//    @Test
+//    public void drinksReturnedFromGetAll() throws Exception {
+//        Drink testDrinks = setupDrinks();
+//        Drink testDrinks2 = setupDrinks();
+//        drinkDao.add(testDrinks);
+//        drinkDao.add(testDrinks2);
+//        assertEquals(2, drinkDao.getAll().size());
+//    }
 
 }
 

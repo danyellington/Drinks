@@ -1,6 +1,7 @@
 package dao;
 
 import models.Alcoholic;
+import models.Drink;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,6 +41,15 @@ public class Sql2oAlcoholicDaoTest {
         Alcoholic testAlcoholic = setupAlcoholic();
         alcoholicDao.add(testAlcoholic);
         assertEquals(1, testAlcoholic.getId());
+    }
+
+    @Test
+    public void drinksReturnedFromGetAll() throws Exception {
+        Alcoholic testAlcoholic = setupAlcoholic();
+        Alcoholic testAlcoholic2 = setupAlcoholic();
+        alcoholicDao.add(testAlcoholic);
+        alcoholicDao.add(testAlcoholic2);
+        assertEquals(2, alcoholicDao.getAll().size());
     }
 
 }

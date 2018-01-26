@@ -6,10 +6,10 @@ import java.util.List;
 public interface DrinkDao {
 
 
-    void add(Drink drinks);
+    void add(Drink drink);
 
     List<Drink> getAll();
-    List<NonAlcoholic> getAllNonAlcoholicDrinks(int drinkId);
+    //List<NonAlcoholic> getAllNonAlcoholicDrink(int drinkId);
 
     Drink findById(int id);
 //

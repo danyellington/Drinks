@@ -18,7 +18,7 @@ public class Sql2oDrinkDao implements DrinkDao {
 
     @Override
     public void add(Drink drink) {
-        String sql = "INSERT INTO Drink (type) Values (:type)";
+        String sql = "INSERT INTO Drinks (type) Values (:type)";
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql)
                     .bind(drink)
@@ -33,22 +33,21 @@ public class Sql2oDrinkDao implements DrinkDao {
 
     @Override
     public List<Drink> getAll() {
-        String sql = "SELECT * FROM drink";
         try (Connection con = sql2o.open()) {
-            return con.createQuery(sql)
+            return con.createQuery("SELECT * FROM drinks")
                     .executeAndFetch(Drink.class);
         }
     }
 
-    @Override
-    public List<NonAlcoholic> getAllNonAlcoholicDrinks(int drinkId) {
-        return null;
-    }
+//    @Override
+//    public List<NonAlcoholic> getAllNonAlcoholicDrinks(int drinkId) {
+//        return null;
+//    }
 
     @Override
     public Drink findById(int id) {
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM drink WHERE id = :id")
+            return con.createQuery("SELECT * FROM drinks WHERE id = :id")
                     .addParameter("id", id)
                     .executeAndFetchFirst(Drink.class);
         }

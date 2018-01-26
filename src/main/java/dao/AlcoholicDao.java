@@ -16,7 +16,7 @@ public interface AlcoholicDao {
 //    void addAlcoholicToNonAlcoholic(Alcoholic alcoholic, NonAlcoholic nonAlcoholic);
 //
 //
-//    List<Alcoholic> getAll();
+    List<Alcoholic> getAll();
 //
 //    List<NonAlcoholic> getAllAlcoholicForNonAlcoholic(int id);
 //
