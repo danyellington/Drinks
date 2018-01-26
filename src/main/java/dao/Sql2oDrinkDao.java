@@ -33,16 +33,13 @@ public class Sql2oDrinkDao implements DrinkDao {
 
     @Override
     public List<Drink> getAll() {
+        String sql = "SELECT * FROM drinks";
         try (Connection con = sql2o.open()) {
-            return con.createQuery("SELECT * FROM drinks")
+            return con.createQuery(sql)
                     .executeAndFetch(Drink.class);
         }
     }
 
-//    @Override
-//    public List<NonAlcoholic> getAllNonAlcoholicDrinks(int drinkId) {
-//        return null;
-//    }
 
     @Override
     public Drink findById(int id) {
@@ -52,9 +49,5 @@ public class Sql2oDrinkDao implements DrinkDao {
                     .executeAndFetchFirst(Drink.class);
         }
 
-//    @Override
-//    public Drink findById(int drinkId) {
-//        return null;
-//    }
     }
 }

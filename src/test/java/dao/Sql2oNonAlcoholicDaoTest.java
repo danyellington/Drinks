@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 import static org.junit.Assert.*;
 
@@ -50,13 +51,14 @@ public class Sql2oNonAlcoholicDaoTest {
 //        assertEquals(1, nonAlcoholicDao.getAll().size());
 //    }
 
-    @Test
-    public void returnId() throws Exception {
-        NonAlcoholic nonAlcoholic = setupNonAlcoholic();
-        int naId = nonAlcoholic.getNaId();
-        nonAlcoholicDao.add(nonAlcoholic);
-        assertEquals(naId, nonAlcoholicDao.findById(nonAlcoholic.getNaId()).getDrinkId());
-    }
+   @Test
+    public void nonAlcoholicDrinksReturnedFromGetAll() throws Exception {
+    NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
+    NonAlcoholic testNonAlcoholic2 = setupNonAlcoholic();
+    nonAlcoholicDao.add(testNonAlcoholic);
+    nonAlcoholicDao.add(testNonAlcoholic2);
+    assertEquals(2, nonAlcoholicDao.getAll().size());
+}
 
 
 }

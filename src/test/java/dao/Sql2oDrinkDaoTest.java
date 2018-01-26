@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+import org.sql2o.Sql2oException;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -53,14 +54,14 @@ public class Sql2oDrinkDaoTest {
         assertNotEquals(originalDrinkId, drink.getDrinkId());
     }
 
-//    @Test
-//    public void drinksReturnedFromGetAll() throws Exception {
-//        Drink testDrinks = setupDrinks();
-//        Drink testDrinks2 = setupDrinks();
-//        drinkDao.add(testDrinks);
-//        drinkDao.add(testDrinks2);
-//        assertEquals(2, drinkDao.getAll().size());
-//    }
+    @Test
+    public void drinksReturnedFromGetAll() throws Exception {
+        Drink testDrinks = setupDrinks();
+        Drink testDrinks2 = setupDrinks();
+        drinkDao.add(testDrinks);
+        drinkDao.add(testDrinks2);
+        assertEquals(2, drinkDao.getAll().size());
+    }
 
 }
 

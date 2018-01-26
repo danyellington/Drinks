@@ -33,16 +33,15 @@ public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
 
     @Override
     public List<NonAlcoholic> getAll() {
-        String sql = "SELECT * FROM NonAlcoholics";
-        try(Connection con = sql2o.open()){
-            return con.createQuery(sql)
-                    .executeAndFetch(NonAlcoholic.class); //fetch a list
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM nonAlcoholic")
+                    .executeAndFetch(NonAlcoholic.class);
         }
     }
 
     @Override
     public NonAlcoholic findById(int id) {
-        String sql = "SELECT * FROM nonAlcoholics WHERE id = :id";
+        String sql = "SELECT * FROM nonAlcoholic WHERE id = :id";
         try (Connection con = sql2o.open()) {
             return con.createQuery(sql)
                     .addParameter("id", id)

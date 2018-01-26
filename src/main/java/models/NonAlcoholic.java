@@ -12,15 +12,6 @@ public class NonAlcoholic {
         this.drinkId = drinkId;
 
 
-
-    }
-
-    public int getNaId() {
-        return naId;
-    }
-
-    public void setNaId(int naId) {
-        this.naId = naId;
     }
 
     public String getIngredients() {
@@ -31,6 +22,13 @@ public class NonAlcoholic {
         this.ingredients = ingredients;
     }
 
+    public int getNaId() {
+        return naId;
+    }
+
+    public void setNaId(int naId) {
+        this.naId = naId;
+    }
 
     public int getDrinkId() {
         return drinkId;
