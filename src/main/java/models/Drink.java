@@ -3,7 +3,7 @@ package models;
 
 public class Drink {
     private String type;
-    private int drinkId;
+    private int id;
 
 
     public Drink(String type) {
@@ -12,13 +12,15 @@ public class Drink {
 
     }
 
-    public int getDrinkId() {
-        return drinkId;
+    public int getId() {
+        return id;
     }
 
-    public void setDrinkId(int drinkId) {
-        this.drinkId = drinkId;
+    public void setId(int id) {
+        this.id = id;
     }
+
+
 
     public String getType() {
         return type;
@@ -29,7 +31,6 @@ public class Drink {
     }
 
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -37,14 +38,14 @@ public class Drink {
 
         Drink drink = (Drink) o;
 
-        if (drinkId != drink.drinkId) return false;
+        if (id != drink.id) return false;
         return type != null ? type.equals(drink.type) : drink.type == null;
     }
 
     @Override
     public int hashCode() {
         int result = type != null ? type.hashCode() : 0;
-        result = 31 * result + drinkId;
+        result = 31 * result + id;
         return result;
     }
 }

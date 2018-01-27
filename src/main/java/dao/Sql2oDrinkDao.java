@@ -24,7 +24,7 @@ public class Sql2oDrinkDao implements DrinkDao {
                     .bind(drink)
                     .executeUpdate()
                     .getKey();
-            drink.setDrinkId(id);
+            drink.setId(id);
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
@@ -42,12 +42,37 @@ public class Sql2oDrinkDao implements DrinkDao {
 
 
     @Override
-    public Drink findById(int drinkId) {
+    public Drink findById(int id) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM drinks WHERE id = :id")
-                    .addParameter("id", drinkId)
+                    .addParameter("id", id)
                     .executeAndFetchFirst(Drink.class);
         }
 
+    }
+
+    @Override
+    public void update(int id, String type){
+        String sql = "UPDATE drinks SET type = :type, id = :id WHERE id=:id"; //raw sql
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("type", type)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
+    public void deleteById(int id) {
+        String sql = "DELETE from drinks WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
     }
 }

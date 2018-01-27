@@ -43,15 +43,15 @@ public class Sql2oDrinkDaoTest {
     public void setId(){
         Drink testDrinks = setupDrinks();
         drinkDao.add(testDrinks);
-        assertEquals(1, testDrinks.getDrinkId());
+        assertEquals(1, testDrinks.getId());
     }
 
     @Test
     public void SetsId() throws Exception {
         Drink drink = setupDrinks();
-        int originalDrinkId = drink.getDrinkId();
+        int originalDrinkId = drink.getId();
         drinkDao.add(drink);
-        assertNotEquals(originalDrinkId, drink.getDrinkId());
+        assertNotEquals(originalDrinkId, drink.getId());
     }
 
     @Test
@@ -61,6 +61,34 @@ public class Sql2oDrinkDaoTest {
         drinkDao.add(testDrinks);
         drinkDao.add(testDrinks2);
         assertEquals(2, drinkDao.getAll().size());
+    }
+
+    @Test
+    public void findDrinkTypesById() throws Exception {
+        Drink testDrink = setupDrinks();
+        Drink testDrink2 = new Drink("manly");
+        drinkDao.add(testDrink);
+        drinkDao.add(testDrink2);
+        assertEquals("manly", drinkDao.findById(2).getType());
+    }
+
+
+    @Test
+    public void update() throws Exception {
+        String initialDrinkType = "fruity";
+        Drink drink = setupDrinks();
+        drinkDao.add(drink);
+        drinkDao.update(1, "sour");
+        Drink updatedDrink = drinkDao.findById(drink.getId());
+        assertNotEquals(initialDrinkType, updatedDrink.getType());
+    }
+
+    @Test
+    public void deleteById() throws Exception {
+        Drink testDrink = setupDrinks();
+        drinkDao.add(testDrink);
+        drinkDao.deleteById(testDrink.getId());
+        assertEquals(3, drinkDao.getAll().size());
     }
 
 }
