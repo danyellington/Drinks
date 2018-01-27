@@ -72,12 +72,12 @@ public class Sql2oNonAlcoholicDaoTest {
         assertNotEquals(initialIngredientType, updatedNonAlcoholic.getIngredients());
     }
 
-//    @Test
-//    public void deleteById() throws Exception {
-//        Alcoholic testAlcoholic = setupAlcoholic();
-//        alcoholicDao.add(testAlcoholic);
-//        alcoholicDao.deleteById(testAlcoholic.getId());
-//        assertEquals(0, alcoholicDao.getAll().size());
-//    }
+    @Test
+    public void deleteById() throws Exception {
+        NonAlcoholic testNonAlcoholic = setupNonAlcoholic();
+        nonAlcoholicDao.add(testNonAlcoholic);
+        nonAlcoholicDao.deleteById(testNonAlcoholic.getId());
+        assertEquals(0, alcoholicDao.getAll().size());
+    }
 
 }
