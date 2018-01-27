@@ -2,7 +2,7 @@
 This is an application designed for a user to add and store drink recipes, Version 1: 08/12/17
 #### By: Danyel Murray
 ### Description
-This program is allows a user to add and alter drink recipes and store them for later reference.
+This program allows a user to add, alter, and store drink recipes for later reference.
 
 ### Specifications
 Program can receive user input

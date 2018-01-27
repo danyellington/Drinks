@@ -42,10 +42,10 @@ public class Sql2oDrinkDao implements DrinkDao {
 
 
     @Override
-    public Drink findById(int id) {
+    public Drink findById(int drinkId) {
         try (Connection con = sql2o.open()) {
             return con.createQuery("SELECT * FROM drinks WHERE id = :id")
-                    .addParameter("id", id)
+                    .addParameter("id", drinkId)
                     .executeAndFetchFirst(Drink.class);
         }
 

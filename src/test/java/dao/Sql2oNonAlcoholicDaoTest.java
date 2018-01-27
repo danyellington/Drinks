@@ -33,7 +33,7 @@ public class Sql2oNonAlcoholicDaoTest {
     }
 
     public NonAlcoholic setupNonAlcoholic(){
-        return new NonAlcoholic("juice", 1);
+        return new NonAlcoholic("juice", 3);
     }
 
 
