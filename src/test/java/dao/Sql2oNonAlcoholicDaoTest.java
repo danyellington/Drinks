@@ -62,4 +62,22 @@ public class Sql2oNonAlcoholicDaoTest {
         assertEquals("juice", nonAlcoholicDao.findById(1).getIngredients());
     }
 
+    @Test
+    public void update() throws Exception {
+        String initialIngredientType = "soda";
+        NonAlcoholic NonAlcoholic = setupNonAlcoholic();
+        nonAlcoholicDao.add(NonAlcoholic);
+        nonAlcoholicDao.update(3, 2, "juice");
+        NonAlcoholic updatedNonAlcoholic = nonAlcoholicDao.findById(NonAlcoholic.getId());
+        assertNotEquals(initialIngredientType, updatedNonAlcoholic.getIngredients());
+    }
+
+//    @Test
+//    public void deleteById() throws Exception {
+//        Alcoholic testAlcoholic = setupAlcoholic();
+//        alcoholicDao.add(testAlcoholic);
+//        alcoholicDao.deleteById(testAlcoholic.getId());
+//        assertEquals(0, alcoholicDao.getAll().size());
+//    }
+
 }
