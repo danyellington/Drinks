@@ -9,6 +9,7 @@ public class Drink {
     public Drink(String type) {
         this.type = type;
 
+
     }
 
     public String getType() {

@@ -20,6 +20,8 @@ public interface AlcoholicDao {
 //
 //    List<NonAlcoholic> getAllAlcoholicForNonAlcoholic(int id);
 //
-//    void deleteById(int id);
+    void update(String alcoholType, int id);
+
+    void deleteById(int id);
 
 }

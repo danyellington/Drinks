@@ -48,4 +48,30 @@ public class Sql2oNonAlcoholicDao implements NonAlcoholicDao {
                     .executeAndFetchFirst(NonAlcoholic.class);
         }
     }
+
+    @Override
+    public void update(int drinkId, int id, String ingredients){
+        String sql = "UPDATE nonAlcoholic SET ingredients = :ingredients, drinkId = :drinkId WHERE id=:id"; //raw sql
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("ingredients", ingredients)
+                    .addParameter("drinkId", drinkId)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
+    public void deleteById(int id) {
+        String sql = "DELETE from nonAlcoholic WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
 }
