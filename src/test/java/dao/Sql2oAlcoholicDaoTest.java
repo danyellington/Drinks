@@ -72,4 +72,12 @@ public class Sql2oAlcoholicDaoTest {
         assertNotEquals(initialAlcoholType, updatedAlcoholic.getAlcoholType());
     }
 
+    @Test
+    public void deleteById() throws Exception {
+        Alcoholic testAlcoholic = setupAlcoholic();
+        alcoholicDao.add(testAlcoholic);
+        alcoholicDao.deleteById(testAlcoholic.getId());
+        assertEquals(0, alcoholicDao.getAll().size());
+    }
+
 }
