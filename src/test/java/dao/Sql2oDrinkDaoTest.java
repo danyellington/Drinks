@@ -88,7 +88,7 @@ public class Sql2oDrinkDaoTest {
         Drink testDrink = setupDrinks();
         drinkDao.add(testDrink);
         drinkDao.deleteById(testDrink.getId());
-        assertEquals(3, drinkDao.getAll().size());
+        assertEquals(0, drinkDao.getAll().size());
     }
 
 }

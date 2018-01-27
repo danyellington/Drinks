@@ -11,15 +11,9 @@ public interface AlcoholicDao {
     void add(Alcoholic alcoholic);
 
     Alcoholic findById(int id);
-//
-//
-//    void addAlcoholicToNonAlcoholic(Alcoholic alcoholic, NonAlcoholic nonAlcoholic);
-//
-//
+
     List<Alcoholic> getAll();
-//
-//    List<NonAlcoholic> getAllAlcoholicForNonAlcoholic(int id);
-//
+
     void update(String alcoholType, int id);
 
     void deleteById(int id);
